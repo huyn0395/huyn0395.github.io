@@ -18,64 +18,43 @@
         .huge-text {
             font-size: 3rem;
             color: #333;
-            cursor: pointer;
-        }
-        .container {
-            text-align: center;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin: 0 10px;
-            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="huge-text">
-            LET'S GOOOO
-        </div>
+        <h1>Will you be my valentine?</h1>
+        <img src="img.jpg" alt="Your Custom Image">
         <div class="buttons">
-            <button onclick="handleYesNoClick('yes')">Yes</button>
-            <button onclick="handleYesNoClick('no')">No</button>
+            <button class="btn-yes" onclick="handleYesClick()">Yes</button>
+            <button onclick="handleNoButtonClick()">No</button>
         </div>
     </div>
 
     <script>
-        var isTextGooo = true;
+        function handleYesClick() {
+            document.querySelector('.container').innerHTML = '<div class="huge-text">LET\'S GOOOO</div>';
+        }
 
-        function handleYesNoClick(response) {
-            var hugeText = document.querySelector('.huge-text');
-            var yesButton = document.querySelector('.buttons button:nth-child(1)');
-            var noButton = document.querySelector('.buttons button:nth-child(2)');
+        var noButtonClickCount = 0;
 
-            if (response === 'yes') {
-                if (isTextGooo) {
-                    hugeText.textContent = "AWWW YEAH!";
-                    isTextGooo = false;
-                } else {
-                    hugeText.textContent = "LET'S GOOOO";
-                    isTextGooo = true;
-                }
-            } else if (response === 'no') {
-                switch (noButton.textContent) {
-                    case "No":
-                        noButton.textContent = "BUT PLEASE";
-                        break;
-                    case "BUT PLEASE":
-                        noButton.textContent = "WHY THOOO";
-                        break;
-                    case "WHY THOOO":
-                        noButton.textContent = "I CRY EASILY PLEASE";
-                        break;
-                    default:
-                        noButton.disabled = true;
-                        break;
-                }
+        function handleNoButtonClick() {
+            var noButton = document.querySelector('.buttons button:last-child');
+            noButtonClickCount++;
+
+            switch(noButtonClickCount) {
+                case 1:
+                    noButton.textContent = "BUT PLEASE";
+                    break;
+                case 2:
+                    noButton.textContent = "WHY THOOO";
+                    break;
+                case 3:
+                    noButton.textContent = "I CRY EASILY PLEASE";
+                    break;
+                default:
+                    noButton.disabled = true;
+                    break;
             }
         }
     </script>
