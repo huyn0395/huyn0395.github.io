@@ -35,16 +35,31 @@
             margin: 0 10px;
             cursor: pointer;
         }
+        .btn-yes {
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-yes:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Will you be my valentine?</h1>
-        <img src="https://preview.redd.it/wv8ydgxwlvg51.jpg?width=960&crop=smart&auto=webp&s=09bc0b85f5187ff77dc3a01557f14f697a6ab78f" alt="Laughing Pikachu">
+        <img src="img.jpg" alt="Your Custom Image">
         <div class="buttons">
-            <button onclick="alert('Great! Happy Valentine\'s Day!')">Yes</button>
-            <button onclick="alert('That\'s okay! Have a great day!')">No</button>
+            <button class="btn-yes" onclick="alert('Great! Happy Valentine\'s Day!')">Yes</button>
+            <button onclick="growYesButton(); alert('That\'s okay! Have a great day!')">No</button>
         </div>
     </div>
+
+    <script>
+        function growYesButton() {
+            var yesButton = document.querySelector('.btn-yes');
+            var currentSize = window.getComputedStyle(yesButton).fontSize;
+            var newSize = parseFloat(currentSize) * 1.1; // Increase size by 10%
+            yesButton.style.fontSize = newSize + 'px';
+        }
+    </script>
 </body>
 </html>
