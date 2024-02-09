@@ -15,9 +15,31 @@
             align-items: center;
             height: 100vh;
         }
-        .huge-text {
-            font-size: 3rem;
+        .container {
+            text-align: center;
+        }
+        h1 {
             color: #333;
+        }
+        img {
+            max-width: 80%; /* Adjust the value to make the image smaller */
+            height: auto;
+            margin-top: 20px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .btn-yes {
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-yes:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -26,31 +48,78 @@
         <h1>Will you be my valentine?</h1>
         <img src="img.jpg" alt="Your Custom Image">
         <div class="buttons">
-            <button class="btn-yes" onclick="handleYesClick()">Yes</button>
+            <button class="btn-yes" onclick="alert('Great! Happy Valentine\'s Day!')">Yes</button>
             <button onclick="handleNoButtonClick()">No</button>
         </div>
     </div>
 
     <script>
-        function handleYesClick() {
-            document.querySelector('.container').innerHTML = '<div class="huge-text">LET\'S GOOOO</div>';
-        }
-
         var noButtonClickCount = 0;
 
         function handleNoButtonClick() {
             var noButton = document.querySelector('.buttons button:last-child');
             noButtonClickCount++;
 
-            switch(noButtonClickCount) {
+             switch(noButtonClickCount) {
                 case 1:
-                    noButton.textContent = "BUT PLEASE";
+                    noButton.textContent = "I'm sorry, please reconsider";
                     break;
                 case 2:
-                    noButton.textContent = "WHY THOOO";
+                    noButton.textContent = "But I promise I'll make you happy";
                     break;
                 case 3:
-                    noButton.textContent = "I CRY EASILY PLEASE";
+                    noButton.textContent = "Please, I'll do anything";
+                    break;
+                case 4:
+                    noButton.textContent = "I'll be heartbroken";
+                    break;
+                case 5:
+                    noButton.textContent = "My world will shatter without you";
+                    break;
+                case 6:
+                    noButton.textContent = "I'll never find love again";
+                    break;
+                case 7:
+                    noButton.textContent = "You're my last hope";
+                    break;
+                case 8:
+                    noButton.textContent = "I'll be alone forever";
+                    break;
+                case 9:
+                    noButton.textContent = "I can't live without you";
+                    break;
+                case 10:
+                    noButton.textContent = "Please don't leave me";
+                    break;
+                case 11:
+                    noButton.textContent = "I'll be lost without you";
+                    break;
+                case 12:
+                    noButton.textContent = "I'll be a miserable wreck";
+                    break;
+                case 13:
+                    noButton.textContent = "I'll cry myself to sleep";
+                    break;
+                case 14:
+                    noButton.textContent = "I'll never recover from this";
+                    break;
+                case 15:
+                    noButton.textContent = "My life will be meaningless";
+                    break;
+                case 16:
+                    noButton.textContent = "You're the only one for me";
+                    break;
+                case 17:
+                    noButton.textContent = "I'll never be happy again";
+                    break;
+                case 18:
+                    noButton.textContent = "You're everything to me";
+                    break;
+                case 19:
+                    noButton.textContent = "Please don't break my heart";
+                    break;
+                case 20:
+                    noButton.textContent = "I'll never forgive myself";
                     break;
                 default:
                     noButton.disabled = true;
